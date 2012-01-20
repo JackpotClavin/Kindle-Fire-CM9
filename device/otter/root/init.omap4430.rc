@@ -1,0 +1,249 @@
+import init.omap4430.usb.rc
+    start hwprops
+
+on init
+    # mount debugfs
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+	export EXTERNAL_STORAGE /mnt/sdcard
+	mkdir /mnt/sdcard 0000 system system
+	# for backwards compatibility
+	symlink /mnt/sdcard /sdcard
+
+# power management
+# Enable off mode by default
+    write /sys/kernel/debug/pm_debug/enable_off_mode 1
+
+# Enable Smart Reflex in debugfs
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_core/autocomp 1
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
+
+on boot
+# Enable ADB hack
+    write /dev/usb_device_mode msc_adb
+
+on boot
+    setprop ro.radio.noril yes
+	chmod 0666 /dev/pvrsrvkm
+
+# fake some battery state
+    setprop status.battery.state Slow
+    setprop status.battery.level 5
+    setprop status.battery.level_raw  50
+    setprop status.battery.level_scale 9
+
+# wi-fi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+
+# We chown/chmod /data again so because mount is run as root + defaults
+    chown system system /data
+    chmod 0771 /data
+
+	chmod 777 /sys/class/leds/backlight/brightness
+
+    chown media media /system/bin/syslink_daemon.out
+    chown media media /data/base_image_sys_m3.xem3
+    chown media media /data/base_image_app_m3.xem3
+
+    chmod 750 /system/bin/syslink_daemon.out
+    chmod 640 /data/base_image_sys_m3.xem3
+    chmod 640 /data/base_image_app_m3.xem3
+
+    # change permissions for alsa nodes
+    chmod 0777  /dev/snd/pcmC0D0c
+    chmod 0777 /dev/snd/pcmC0D0p
+    chmod 0777  /dev/snd/controlC0
+    chmod 0777  /dev/snd/timer
+
+    #change permissions for alsa nodes for audio modem
+    chmod 0777 /dev/snd/pcmC0D5c
+    chmod 0777 /dev/snd/pcmC0D5p
+
+    #change permissions for alsa nodes for HDMI
+    chmod 777  /dev/snd/pcmC0D7p
+
+    # change permissions for modem
+    chmod 0660 /dev/ttyS0
+    chown radio radio /dev/ttyS0
+
+    # change permissions for Camera
+    chmod 0777 /dev/video5
+    chmod 0777 /dev/video0
+
+    # change permissions for Sensors
+
+    chown system system /sys/devices/virtual/input/input0/mode
+    chmod 0770 /sys/devices/virtual/input/input0/mode
+    chown system system /sys/devices/virtual/input/input0/delay
+    chmod 0770 /sys/devices/virtual/input/input0/delay
+
+    # change permissions for Thermal sensor TMP105
+    chmod 0777 /sys/class/hwmon/hwmon0/device/temp1_max
+    chmod 0777 /sys/class/hwmon/hwmon0/device/temp1_max_hyst
+
+    chown system system /system/bin/omapconf
+    chown root root /system/bin/omapconf2
+
+    # change permissions for Overlay
+    chown system system /dev/video1
+    chown system system /dev/video2
+    chown system system /dev/video3
+    # change permissions for overlay managers and display devices
+    chown system system /sys/devices/platform/omapdss/display0/enabled
+    chown system system /sys/devices/platform/omapdss/display1/enabled
+    chown system system /sys/devices/platform/omapdss/display2/enabled
+    chown system system /sys/devices/platform/omapdss/display3/enabled
+    chown system system /sys/devices/platform/omapdss/display0/name
+    chown system system /sys/devices/platform/omapdss/display1/name
+    chown system system /sys/devices/platform/omapdss/display2/name
+    chown system system /sys/devices/platform/omapdss/display3/name
+    chown system system /sys/devices/platform/omapdss/overlay0/manager
+    chown system system /sys/devices/platform/omapdss/overlay1/manager
+    chown system system /sys/devices/platform/omapdss/overlay2/manager
+    chown system system /sys/devices/platform/omapdss/overlay3/manager
+    chown system system /sys/devices/platform/omapdss/overlay0/zorder
+    chown system system /sys/devices/platform/omapdss/overlay1/zorder
+    chown system system /sys/devices/platform/omapdss/overlay2/zorder
+    chown system system /sys/devices/platform/omapdss/overlay3/zorder
+    # change permissions for manager tranparency parameters
+    chown system system /sys/devices/platform/omapdss/manager0/name
+    chown system system /sys/devices/platform/omapdss/manager0/display
+    chown system system /sys/devices/platform/omapdss/manager1/name
+    chown system system /sys/devices/platform/omapdss/manager1/display
+    chown system system /sys/devices/platform/omapdss/manager2/name
+    chown system system /sys/devices/platform/omapdss/manager2/display
+    chown system system /sys/devices/platform/omapdss/overlay0/enabled
+    chown system system /sys/devices/platform/omapdss/overlay1/enabled
+    chown system system /sys/devices/platform/omapdss/overlay2/enabled
+    chown system system /sys/devices/platform/omapdss/overlay3/enabled
+    # change permissions for display timings to get the resolutions
+    chown system system /sys/devices/platform/omapdss/display0/timings
+    chown system system /sys/devices/platform/omapdss/display1/timings
+    chown system system /sys/devices/platform/omapdss/display2/timings
+    chown system system /sys/devices/platform/omapdss/display3/timings
+    chown system system /sys/devices/platform/omapdss/display2/code
+     # change permissions for Tiler driver
+    chown media media /dev/tiler
+    chmod 0666 /dev/tiler
+    chmod 0666 /dev/dmm
+
+# Revert the boost_timeout to the default value of 3 sec. Note this won't affect the prev boost
+# request for boot time reduction
+    write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 3000000
+
+# Enable hotplug detection for HDMI
+#    write /sys/devices/platform/omapdss/display2/hpd_enabled 1
+
+# Change permissions for FB overlays for HDMI UI Cloning
+    chown system system /sys/class/graphics/fb0/overlays
+    chown system system /sys/class/graphics/fb0/fit_to_screen
+    chown system system /sys/class/graphics/fb1/overlays
+
+# Enable UI-Cloning Service in SystemServer
+    setprop tv.hdmi.uicloning.enable true
+
+# Keypad permissions
+    chmod 0444 /system/usr/keychars/omap-keypad.kcm.bin
+    chmod 0444 /system/usr/keychars/qwerty.kcm.bin
+    
+# Set current permissions for charge protection
+    chown system system /sys/class/power_supply/usb/device/charge_command
+    chown system system /sys/class/power_supply/usb/device/charge_current
+    chown system system /sys/class/power_supply/usb/device/float_voltage
+    chown system system /sys/class/power_supply/usb/device/bad_battery
+
+on property:persist.service.adb.enable=1
+    start adbd
+
+on property:persist.service.adb.enable=0
+    stop adbd
+
+on fs
+    mount ext4 /dev/block/platform/mmci-omap-hs.1/by-name/system /system wait ro
+    mount ext4 /dev/block/platform/mmci-omap-hs.1/by-name/userdata /data wait noatime nosuid nodev errors=continue
+    mount ext4 /dev/block/platform/mmci-omap-hs.1/by-name/cache /cache wait noatime nosuid nodev errors=continue
+    mount ext4 /dev/block/platform/mmci-omap-hs.1/by-name/splash /dropbox wait noatime nosuid nodev errors=continue
+    mount vfat /dev/block/platform/mmci-omap-hs.1/by-name/media /mnt/sdcard wait noatime nosuid nodev errors=continue
+	#fix for sdcard mount error causing some apps to not install (courtesy of HeWhoWas on XDA 1/3/2012)
+    mkdir /sdcard/.android_secure
+    symlink /sdcard/.android_secure /mnt/secure/asec
+
+# switch CPUfreq from performance to hotplug
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpufreq/hotplug/down_threshold 30
+
+#Give system ownership and permission to boost clock for specified timeout
+#Note boost_timeout cannot be changed from application because of dynamic sysfs creation. It will have default value of 3 sec.
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
+    chmod 0664  /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
+
+# Boost the CPU for 60 sec for boot optimization
+    write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 60000000
+    write /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq 1
+
+service hwprops /sbin/hwprops
+    critical
+	disabled
+	oneshot
+
+# Initialize the SGX driver
+service pvrsrvinit /system/bin/pvrsrvinit
+	class core
+	user root
+	group root
+	oneshot
+
+#Load IVA firmware
+service baseimage /system/bin/syslink_daemon.out -f /system/lib/ducati/base_image_sys_m3.xem3 /system/lib/ducati/base_image_app_m3.xem3
+    critical
+    user media
+    group media
+
+# WLAN Related services
+service wlan_loader /system/bin/wlan_loader \
+    -f /system/etc/wifi/firmware.bin -i /system/etc/wifi/tiwlan.ini -e /data/misc/wifi/nvs_map.bin
+     disabled
+     oneshot
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dtiwlan0 -itiwlan0 -c/data/misc/wifi/wpa_supplicant.conf
+    socket wpa_tiwlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service dhcpcd_tiwlan0 /system/bin/dhcpcd -ABKL
+    disabled
+    oneshot
+
+service iprenew_tiwlan0 /system/bin/dhcpcd -n
+	disabled
+	oneshot
+
+# HotSpot Related services
+service wlan_ap_loader /system/bin/tiap_loader \
+    -f /system/etc/wifi/softap/firmware_ap.bin \
+    -i /system/etc/wifi/softap/tiwlan_ap.ini \
+    -e /data/misc/wifi/nvs_map.bin
+    disabled
+    oneshot
+
+service ifcfg_softap /system/bin/netconfig tiwlan0 up
+    disabled
+    oneshot
+
+#service hostapd /system/bin/hostap -dd /data/misc/wifi/hostapd.conf
+#    disabled
+#    oneshot
+
+service watchdog /sbin/watchdog
+    user root
+    oneshot
+
+service touch_firmware /system/bin/touch_firmware.sh
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start printboottime
+    start touch_firmware
+    start adobe_air

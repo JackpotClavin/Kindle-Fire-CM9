@@ -1,0 +1,21 @@
+ro.config.disable_hw_accel=true
+ro.sf.hwrotation=270
+persist.sys.usb.config=mass_storage,adb
+com.ti.omap_enhancement=true
+opencore.asmd=1
+#keyguard.no_require_sim=1
+#wifi.interface=tiwlan0
+#dalvik.vm.heapsize=64m
+#ro.sf.lcd_density=160
+#ro.opengles.version=131072
+# Define modem related settings
+ro.radio.use-ppp no
+ro.config.nocheckin yes
+#define defaults for audio D/A mic and power mode
+omap.audio.mic.main=AMic0
+omap.audio.mic.sub=AMic1
+omap.audio.power=PingPong
+#upgrading the resampler quality
+af.resampler.quality=2
+persist.lab126.chargeprotect=1
+

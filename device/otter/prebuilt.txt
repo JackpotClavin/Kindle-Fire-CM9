@@ -1,0 +1,48 @@
+device/amazon/otter/prebuilt   vendor/lib/hw/gralloc.omap4.so:system/vendor/lib/hw/gralloc.omap4.so
+device/amazon/otter/prebuilt   vendor/lib/egl/libEGL_POWERVR_SGX540_120.so:system/vendor/lib/egl/libEGL_POWERVR_SGX540_120.so:
+device/amazon/otter/prebuilt   vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so:
+device/amazon/otter/prebuilt   vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so:
+device/amazon/otter/prebuilt   vendor/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so:
+device/amazon/otter/prebuilt   vendor/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so:
+device/amazon/otter/prebuilt   vendor/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so:
+device/amazon/otter/prebuilt   vendor/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so:
+device/amazon/otter/prebuilt   vendor/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so:
+device/amazon/otter/prebuilt   vendor/lib/libsrv_init.so:
+device/amazon/otter/prebuilt   vendor/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so:
+device/amazon/otter/prebuilt   vendor/lib/libTIPVR2DBLT.so:system/vendor/lib/libTIPVR2DBLT.so:
+device/amazon/otter/prebuilt   vendor/lib/libusc.so:system/vendor/lib/libusc.so:
+
+device/amazon/otter/prebuilt   vendor/bin/320x240.nv12:system/vendor/bin/320x240.nv12:
+device/amazon/otter/prebuilt   vendor/bin/framebuffer_test:system/vendor/bin/framebuffer_test:
+device/amazon/otter/prebuilt   vendor/bin/hal_client_test:system/vendor/bin/hal_client_test:
+device/amazon/otter/prebuilt   vendor/bin/hal_server_test:system/vendor/bin/hal_server_test:
+device/amazon/otter/prebuilt   vendor/bin/pvr2d_test:system/vendor/bin/pvr2d_test:
+device/amazon/otter/prebuilt   vendor/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit:
+device/amazon/otter/prebuilt   vendor/bin/services_test:system/vendor/bin/services_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_blit_test:system/vendor/bin/sgx_blit_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_clipblit_test:system/vendor/bin/sgx_clipblit_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_flip_test:system/vendor/bin/sgx_flip_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_init_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_render_flip_test:system/vendor/bin/sgx_render_flip_test:
+device/amazon/otter/prebuilt   vendor/bin/testwrap:system/vendor/bin/testwrap:
+device/amazon/otter/prebuilt   vendor/bin/texture_benchmark:system/vendor/bin/texture_benchmark
+device/amazon/otter/prebuilt   vendor/bin/v4l2_gfx_client:system/vendor/bin/v4l2_gfx_client
+
+device/amazon/otter/prebuilt   vendor/bin/320x240.nv12:system/bin/320x240.nv12:
+device/amazon/otter/prebuilt   vendor/bin/framebuffer_test:system/bin/framebuffer_test:
+device/amazon/otter/prebuilt   vendor/bin/hal_client_test:system/bin/hal_client_test:
+device/amazon/otter/prebuilt   vendor/bin/hal_server_test:system/bin/hal_server_test:
+device/amazon/otter/prebuilt   vendor/bin/pvr2d_test:system/bin/pvr2d_test:
+device/amazon/otter/prebuilt   vendor/bin/pvrsrvinit:system/bin/pvrsrvinit:
+device/amazon/otter/prebuilt   vendor/bin/services_test:system/bin/services_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_blit_test:system/bin/sgx_blit_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_clipblit_test:system/bin/sgx_clipblit_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_flip_test:system/bin/sgx_flip_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_init_test:
+device/amazon/otter/prebuilt   vendor/bin/sgx_render_flip_test:system/bin/sgx_render_flip_test:
+device/amazon/otter/prebuilt   vendor/bin/testwrap:system/bin/testwrap:
+device/amazon/otter/prebuilt   vendor/bin/texture_benchmark:system/bin/texture_benchmark
+device/amazon/otter/prebuilt   vendor/bin/v4l2_gfx_client:system/bin/v4l2_gfx_client
+
+
+
