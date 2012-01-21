@@ -139,7 +139,7 @@ PRODUCT_PACKAGES += \
 	hwprops \
 	CMStats \
 	libaudiohw_legacy \
-	audio.primary.otter
+	audio.primary.omap4430
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
