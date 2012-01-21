@@ -19,6 +19,7 @@
 USE_CAMERA_STUB := true
 #TARGET_PROVIDES_INIT_RC := true
 BIONIC_ICS := true
+BOARD_HAVE_FAKE_GPS := true
 
 # inherit from the proprietary version
 -include vendor/amazon/otter/BoardConfigVendor.mk

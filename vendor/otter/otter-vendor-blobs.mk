@@ -51,6 +51,7 @@ PRODUCT_COPY_FILES  += \
 	vendor/amazon/otter/proprietary/tiwlan_drv.ko:/system/etc/wifi/tiwlan_drv.ko \
 	vendor/amazon/otter/proprietary/wlan_cu.st:/system/etc/wifi/wlan_cu.st \
 	vendor/amazon/otter/proprietary/idme:/system/bin/idme \
+	vendor/amazon/otter/proprietary/libOMX.TI.DUCATI1.VIDEO.DECODER.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so \
 	vendor/amazon/otter/proprietary/wlan_loader:/system/bin/wlan_loader
 
 # All the blobs necessary for Kindle Fire
