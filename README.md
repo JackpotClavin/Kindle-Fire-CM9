@@ -44,6 +44,12 @@ rm -rf frameworks/base/packages/SystemUI
 git clone git://github.com/JackpotClavin/SystemUI-For-CM9-Kindle-Fire.git frameworks/base/packages/SystemUI/SystemUI
 ```
 
+### Before compiling change the make files to not build hwc
+
+```bash
+mv hardware/ti/omap4xx/hwc/Android.mk hardware/ti/omap4xx/hwc/Android.mk.bak
+```
+
 ### Compile
 
 ```bash
@@ -51,7 +57,7 @@ source build/envsetup.sh
 brunch otter -j$(grep -c processor /proc/cpuinfo)
 ```
 
-this sould produce an falshable out/target/product/otter/cm_otter-ota-eng.$USER.zip file, if the signing process fails try to run it again:
+this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.zip file, if the signing process fails try to run it again:
 
 ```bash
 ./device/amazon/otter/releasetools/otter_ota_from_target_files -v \
