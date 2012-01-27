@@ -31,11 +31,11 @@
 
       A storage should not have both emulated and removable set to true
 -->
+
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
     <storage android:mountPoint="/mnt/sdcard"
-             android:storageDescription="@string/storage_internal"
-             android:primary="true"
-             android:allowMassStorage="true"
-	     android:maxFileSize="4096"
-             android:removable="false" />
+                 android:storageDescription="@string/storage_internal"
+                 android:primary="true"
+                 android:allowMassStorage="true"
+                 android:mtpReserve="100" />
 </StorageList>

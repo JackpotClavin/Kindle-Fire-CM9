@@ -1,4 +1,4 @@
-# Copyright (C) 2011 The Android Open Source Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# Input Device Calibration File for the Tuna touch screen.
+# Input Device Configuration File for the Stingray touch screen.
 #
 
 # Basic Parameters
@@ -21,22 +21,20 @@ touch.deviceType = touchScreen
 touch.orientationAware = 1
 
 # Size
-touch.size.calibration = none
-#touch.size.scale = 10
-#touch.size.bias = 0
-#touch.size.isSummed = 0
+# Based on empirical measurements, we estimate the size of the contact
+# using size = sqrt(area) * 28 + 0.
+touch.size.calibration = area
+touch.size.scale = 28
+touch.size.bias = 0
+touch.size.isSummed = 0
 
 # Pressure
 # Driver reports signal strength as pressure.
 #
-# A normal thumb touch typically registers about 200 signal strength
+# A normal index finger touch typically registers about 80 signal strength
 # units although we don't expect these values to be accurate.
-touch.pressure.calibration = none
-#touch.pressure.scale = 0.005
+touch.pressure.calibration = amplitude
+touch.pressure.scale = 0.0125
 
 # Orientation
-touch.orientation.calibration = none
-
-touch.distance.calibration = none
-
-touch.gestureMode = spot
+touch.orientation.calibration = vector

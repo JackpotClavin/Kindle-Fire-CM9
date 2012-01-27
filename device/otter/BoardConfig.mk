@@ -18,8 +18,11 @@
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
 #TARGET_PROVIDES_INIT_RC := true
-BIONIC_ICS := true
+#BIONIC_ICS := true
+#SURFACEFLINGER_FORCE_SCREEN_RELEASE := true
+#DSURFACEFLINGER_FORCE_SCREEN_RELEASE := true
 BOARD_HAVE_FAKE_GPS := true
+#BOARD_CUSTOM_USB_CONTROLLER := ../../device/amazon/otter/UsbController.cpp
 
 # inherit from the proprietary version
 -include vendor/amazon/otter/BoardConfigVendor.mk
@@ -135,8 +138,9 @@ COMMON_GLOBAL_CFLAGS += -DOMAP_ENHANCEMENT
 endif
 endif
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
-BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun0/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
+#BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun0/file
+BOARD_HAS_LARGE_FILESYSTEM := true
 
 #TARGET_PROVIDES_LIBAUDIO := true
 
@@ -147,7 +151,7 @@ BOARD_USES_SECURE_SERVICES := true
 
 COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE \
 			-DMISSING_GRALLOC_BUFFERS \
- 			-DMISSING_EGL_PIXEL_FORMAT_YV12 \
+			-DMISSING_EGL_PIXEL_FORMAT_YV12
 
 DMISSING_EGL_EXTERNAL_IMAGE := true
 DMISSING_EGL_PIXEL_FORMAT_YV12 := true

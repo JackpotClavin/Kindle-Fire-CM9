@@ -69,6 +69,8 @@
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">false</bool>
 
-    <string name="config_legacyUmsLunFile">/sys/devices/platform/usb_mass_storage/lun0/file</string>
+    <bool name="config_sf_slowBlur">false</bool>
+
+    <bool name="config_sf_limitedAlpha">false</bool>
 
 </resources>

@@ -1,5 +1,4 @@
 import init.omap4430.usb.rc
-    start hwprops
 
 on init
     # mount debugfs
@@ -182,10 +181,10 @@ on fs
     write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 60000000
     write /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq 1
 
-service hwprops /sbin/hwprops
-    critical
-	disabled
-	oneshot
+#service hwprops /sbin/hwprops
+#    critical
+#	disabled
+#	oneshot
 
 # Initialize the SGX driver
 service pvrsrvinit /system/bin/pvrsrvinit

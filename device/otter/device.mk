@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES := \
 	$(LOCAL_KERNEL):kernel \
+	device/amazon/otter/root/default.prop:root/default.prop \
 	device/amazon/otter/root/init.omap4430.rc:root/init.omap4430.rc \
 	device/amazon/otter/root/init.rc:root/init.rc \
 	device/amazon/otter/root/init.omap4430.usb.rc:root/init.omap4430.usb.rc \
@@ -119,10 +120,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	wifi.interface=tiwlan0 \
 	wifi.supplicant_scan_interval=60
 
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp,mass_storage
-
 PRODUCT_COPY_FILES += \
 	device/amazon/otter/misc/ilitek_i2c.idc:system/usr/idc/ilitek_i2c.idc
 
@@ -168,12 +165,13 @@ PRODUCT_PACKAGES += \
 	Launcher2 \
 	Superuser \
 	librs_jni \
+	com.android.future.usb.accessory \
 	tiwlan.ini \
 	wlan_cu \
 	wlan_loader \
 	libCustomWifi \
 	wpa_supplicant.conf \
-	dhcpcd.conf \
+	dhcpcd.conf
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
