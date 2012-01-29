@@ -72,8 +72,16 @@ this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.
 
 ### Update git/repo
 
+# For Mac
 ```bash
 ./repo sync -j16
+```
+# For Ubuntu/Linux
+```bash
+repo sync -j16
+```
+
+```bash
 cd github
 git pull
 cd ..
@@ -85,11 +93,21 @@ If you messed up your repo, clean it up (it will reset things like SystemUI, but
 
 ```bash
 make clean
+```
+
+# For Mac
+```bash
 ./repo forall -c "git reset --hard HEAD"
 ./repo forall -c "git clean -fdx"
 ./repo sync -j16
 ```
 
+# For Ubuntu/Linux
+```bash
+repo forall -c "git reset --hard HEAD"
+repo forall -c "git clean -fdx"
+repo sync -j16
+```
 
 ###Notes for compiling on Mac OS X (by davidnintendo)
 * Xcode 4 may not work. Use Xcode 3 instead. You may need to modify the installer to get it working on Lion, though. Use Google to get instructions. 
