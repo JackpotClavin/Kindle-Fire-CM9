@@ -15,15 +15,26 @@
 ### Initialize
 [setup linux/OS X](http://source.android.com/source/initializing.html) please note: it must be sun-java-6, not openjdk
 
-### Download CM9 sources
+### Create a Working directory and download googles Repo command
 
 ```bash
 mkdir cm9
 cd cm9/
 curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > repo
 chmod a+x repo
+```
+
+### Sync with CyanogenMod sources
+
+### For Mac
+```bash
 ./repo init -u git://github.com/CyanogenMod/android.git -b ics
 ./repo sync -j16
+```
+### For Ubuntu/Linux
+```bash
+repo init -u git://github.com/CyanogenMod/android.git -b ics
+repo sync -j16
 ```
 
 ### Download Kindle Fire device tree
