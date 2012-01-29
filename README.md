@@ -70,17 +70,18 @@ this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.
            out/target/product/otter/obj/PACKAGING/target_files_intermediates/cm_otter-target_files-eng.$USER.zip out/target/product/otter/cm_otter-ota-eng.$USER.zip
 ```
 
-### Update git/repo
+### Update repo
 
-# For Mac
+### For Mac
 ```bash
 ./repo sync -j16
 ```
-# For Ubuntu/Linux
+### For Ubuntu/Linux
 ```bash
 repo sync -j16
 ```
 
+### Update github (device/vendor changes)
 ```bash
 cd github
 git pull
@@ -95,14 +96,14 @@ If you messed up your repo, clean it up (it will reset things like SystemUI, but
 make clean
 ```
 
-# For Mac
+### For Mac
 ```bash
 ./repo forall -c "git reset --hard HEAD"
 ./repo forall -c "git clean -fdx"
 ./repo sync -j16
 ```
 
-# For Ubuntu/Linux
+### For Ubuntu/Linux
 ```bash
 repo forall -c "git reset --hard HEAD"
 repo forall -c "git clean -fdx"
