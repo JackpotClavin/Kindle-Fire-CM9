@@ -7,7 +7,7 @@
 |**Discussion thread**: | http://forum.xda-developers.com/showthread.php?t=1411895
 |**Building thread**:   | http://forum.xda-developers.com/showthread.php?p=20844007#post20844007
 |**IRC Channel**:   	| #kindlefire-dev on freenode
-|**Bug List**:	    	| https://docs.google.com/spreadsheet/ccc?key=0AqxTqi6CPt-RdEtHbFhHNDdjZGVONld1OGFEYmRiWUE#gid=0
+|**Bug List**:	    	| https://docs.google.com/spreadsheet/ccc?key=0ArJmKQhhE5AFdGd2U0F3dFlkcno3dmdreFRtWUUtYVE#gid=0
 
 
 ## Building 
@@ -77,6 +77,7 @@ this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.
 cd github
 git pull
 cd ..
+```
 
 ### Clean up repo
 
