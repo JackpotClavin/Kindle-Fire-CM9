@@ -30,10 +30,12 @@ chmod a+x repo
 
 ```bash
 git clone git://github.com/JackpotClavin/Kindle-Fire-CM9.git github
-mkdir -p device/amazon/
-mkdir -p vendor/amazon/
-rsync -a github/device/otter device/amazon/
-rsync -a github/vendor/otter vendor/amazon/
+mkdir -p device/amazon/ vendor/amazon/
+cd device/amazon/
+ln -s ../../github/device/otter otter
+cd ../../vendor/amazon/
+ln -s ../../github/vendor/otter otter
+cd ../..
 ./vendor/cm/get-prebuilts
 ```
 
@@ -57,7 +59,7 @@ source build/envsetup.sh
 brunch otter -j$(grep -c processor /proc/cpuinfo)
 ```
 
-this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.zip file, if the signing process fails try to run it again:
+this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.zip file, if the signing process fails (typical error: Could not create the Java virtual machine.) try to run it again:
 
 ```bash
 ./device/amazon/otter/releasetools/otter_ota_from_target_files -v \
@@ -66,6 +68,25 @@ this should produce a flashable out/target/product/otter/cm_otter-ota-eng.$USER.
            --backup=true \
            --override_device=auto \
            out/target/product/otter/obj/PACKAGING/target_files_intermediates/cm_otter-target_files-eng.$USER.zip out/target/product/otter/cm_otter-ota-eng.$USER.zip
+```
+
+### Update git/repo
+
+```bash
+./repo sync -j16
+cd github
+git pull
+cd ..
+
+### Clean up repo
+
+If you messed up your repo, clean it up (it will reset things like SystemUI, but not the device/vendor tree):
+
+```bash
+make clean
+./repo forall -c "git reset --hard HEAD"
+./repo forall -c "git clean -fdx"
+./repo sync -j16
 ```
 
 
