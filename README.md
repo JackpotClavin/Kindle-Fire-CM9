@@ -49,7 +49,7 @@ git clone git://github.com/JackpotClavin/SystemUI-For-CM9-Kindle-Fire.git framew
 ### Before compiling change the make files to not build hwc
 
 ```bash
-mv hardware/ti/omap4xx/hwc/Android.mk hardware/ti/omap4xx/hwc/Android.mk.bak
+mv hardware/ti/omap4xxx/hwc/Android.mk hardware/ti/omap4xxx/hwc/Android.mk.bak
 ```
 
 ### Compile
