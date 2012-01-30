@@ -34,7 +34,7 @@
     <feature name="android.hardware.microphone" />
     <feature name="android.hardware.screen.portrait" />
     <feature name="android.hardware.screen.landscape" />
-    <!-- fake some permissions for market fix (test, not yet in source) -->
+    <!-- fake some permissions for market fix -->
     <feature name="android.hardware.location.gps" />
     <feature name="android.hardware.camera" />                             
     <feature name="android.hardware.camera.autofocus" />                   
