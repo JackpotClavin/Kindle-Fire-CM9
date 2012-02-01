@@ -40,6 +40,7 @@
     <feature name="android.hardware.camera.autofocus" />                   
     <feature name="android.hardware.camera.autofocus-flash" />             
     <feature name="android.hardware.camera.front" />
+    <feature name="android.hardware.telephony.gsm" />
     <!-- devices with GPS must include android.hardware.location.gps.xml -->
     <!-- devices with a rear-facing camera must include one of these as appropriate:
          android.hardware.camera.xml or 
