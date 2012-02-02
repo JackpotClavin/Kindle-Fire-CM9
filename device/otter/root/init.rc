@@ -52,7 +52,7 @@ loglevel 3
 
     # Directory-target for where the secure container
     # imagefile directory will be bind-mounted
-    # mkdir /mnt/secure/asec  0700 root root
+    mkdir /mnt/secure/asec  0700 root root
 
     # Secure container public mount points.
     mkdir /mnt/asec  0700 root system
